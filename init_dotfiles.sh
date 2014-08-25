@@ -4,7 +4,12 @@
 cd $(dirname $0)
 
 # download neobundle files
-git clone git://github.com/Shougo/neobundle.vim ~/dotfiles/vimfiles/bundle/neobundle.vim
+if [ -e ~/dotfiles/vimfiles/bundle/neobundle.vim ]; then
+    echo "neobundle found"
+else
+    echo "install neobundle"
+    git clone git://github.com/Shougo/neobundle.vim ~/dotfiles/vimfiles/bundle/neobundle.vim
+fi
 
 # make symlink
 for dotfiles in .?*; do

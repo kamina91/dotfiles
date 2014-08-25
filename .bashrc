@@ -9,7 +9,6 @@ fi
 alias ll='ls -alg --color=auto'
 alias ls='ls --color=auto'
 alias vi='vim'
-alias comdir='cd /var/www/html/vorkers.com/'
 alias vhdir='cd /etc/httpd/conf.d/'
 alias webdir='cd /var/www/html/'
 
