@@ -3,9 +3,8 @@
 # current dir
 cd $(dirname $0)
 
-# update vim plugins
-git submodule init
-git submodule foreach 'git pull origin master'
+# download neobundle files
+git clone git://github.com/Shougo/neobundle.vim ~/dotfiles/vimfiles/bundle/neobundle.vim
 
 # make symlink
 for dotfiles in .?*; do
@@ -18,3 +17,9 @@ for dotfiles in .?*; do
             ln -Fis "$PWD/$dotfiles" $HOME;;
     esac
 done
+ln -Fis ~/dotfiles/vimfiles ~/.vim
+
+# update vim plugins
+git submodule init
+git submodule foreach 'git pull origin master'
+
