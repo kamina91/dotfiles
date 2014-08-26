@@ -85,19 +85,30 @@ endif
 
 
 " originalrepos on github
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'VimClojure'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
-"NeoBundle 'https://bitbucket.org/kovisoft/slimv'
+NeoBundle 'Shougo/neobundle.vim'        " NeoBundle         : パッケージマネージャ
+NeoBundle 'Shougo/vimproc'              " vimproc-ja        : 非同期処理系
+NeoBundle 'Shougo/vimshell'             " Shell             : シェル
+NeoBundle 'Shougo/neocomplcache'        " NeoComplCache     : キーワード補完
+NeoBundle 'Shougo/neosnippet'           " NeoSnippet        : Snippet補完
+NeoBundle 'Shougo/neomru.vim'           " NeoMRU            : 最近開いたファイル
+NeoBundle 'scrooloose/syntastic'        " Syntastic         : シンタックスチェック
+NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
+NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
 
-" ファイルをtree表示してくれる
-NeoBundle 'scrooloose/nerdtree'
+
+" ====================
+" Unite Settings{
+" ====================
+NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インターフェース
+NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable =1
+let g:unite_source_file_mru_limit = 200
+" ノーマルモードで ,uu と入力すると履歴を表示するマッピング
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+"
+" }
+"
 
 " インデントに色を付けて見やすくする
 "NeoBundle 'nathanaelkane/vim-indent-guides'
