@@ -22,7 +22,12 @@ for dotfiles in .?*; do
             ln -Fis "$PWD/$dotfiles" $HOME;;
     esac
 done
-ln -Fis ~/dotfiles/vimfiles ~/.vim
+
+if [ -e ~/.vim ]; then
+    echo ".vim found. rename .vim dir"
+else
+    ln -vFis ~/dotfiles/vimfiles ~/.vim;
+fi
 
 # update vim plugins
 git submodule init
