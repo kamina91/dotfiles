@@ -11,6 +11,7 @@ alias ls='ls --color=auto'
 alias vi='vim'
 alias vhdir='cd /etc/httpd/conf.d/'
 alias webdir='cd /var/www/html/'
+alias rs='sudo apachectl restart'
 
 # Git Completion
 source /usr/local/git/contrib/completion/git-prompt.sh
