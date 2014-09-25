@@ -42,6 +42,9 @@ set wildchar=<C-Z>
 "C-vの矩形選択で行末より後ろもカーソルを置ける
 set virtualedit=block
 
+"SCSS用のシンタックス設定
+au BufRead,BufNewFile *.scss set filetype=sass
+
 "検索結果をハイライトする
 set hlsearch
 
@@ -106,14 +109,35 @@ let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
 " ノーマルモードで ,uu と入力すると履歴を表示するマッピング
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
-"
-" }
-"
+" ====================
+"   }
+" ====================
 
 " インデントに色を付けて見やすくする
 "NeoBundle 'nathanaelkane/vim-indent-guides'
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 "let g:indent_guides_enable_on_vim_startup = 1
 
+
+" ====================
+" Color Scheme Import{
+" ====================
+NeoBundle 'sjl/badwolf'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'ciaranm/inkpot'
+NeoBundle 'djjcast/mirodark'
+NeoBundle 'vim-scripts/twilight'
+NeoBundle 'vim-scripts/moria'
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'vim-scripts/Guardian'
+
+colorscheme moria
+" ====================
+"   }
+" ====================
+
 filetype indent on
 syntax on
+set background=dark
