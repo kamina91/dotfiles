@@ -90,13 +90,13 @@ endif
 " originalrepos on github
 NeoBundle 'Shougo/neobundle.vim'        " NeoBundle         : パッケージマネージャ
 NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-            \ 'windows' : 'make -f make_mingw32.mak',
-            \ 'cygwin' : 'make -f make_cygwin.mak',
-            \ 'mac' : 'make -f make_mac.mak',
-            \ 'unix' : 'make -f make_unix.mak',
-          \ },
-      \ }                                   " vimproc-ja        : 非同期処理系
+    \ 'build' : {
+        \ 'windows' : 'make -f make_mingw32.mak',
+        \ 'cygwin' : 'make -f make_cygwin.mak',
+        \ 'mac' : 'make -f make_mac.mak',
+        \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ }                                     " vimproc-ja        : 非同期処理系
 
 NeoBundle 'Shougo/vimshell'             " Shell             : シェル
 NeoBundle 'Shougo/neocomplcache'        " NeoComplCache     : キーワード補完
