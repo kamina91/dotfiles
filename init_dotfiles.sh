@@ -9,6 +9,10 @@ if [ -e ~/dotfiles/vimfiles/bundle/neobundle.vim ]; then
 else
     echo "install neobundle"
     git clone git://github.com/Shougo/neobundle.vim ~/dotfiles/vimfiles/bundle/neobundle.vim
+
+    # update vim plugins
+    git submodule init
+    git submodule foreach 'git pull origin master'
 fi
 
 # make symlink
@@ -28,8 +32,3 @@ if [ -e ~/.vim ]; then
 else
     ln -vFis ~/dotfiles/vimfiles ~/.vim;
 fi
-
-# update vim plugins
-git submodule init
-git submodule foreach 'git pull origin master'
-

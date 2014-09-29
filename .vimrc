@@ -89,14 +89,32 @@ endif
 
 " originalrepos on github
 NeoBundle 'Shougo/neobundle.vim'        " NeoBundle         : パッケージマネージャ
-NeoBundle 'Shougo/vimproc'              " vimproc-ja        : 非同期処理系
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+            \ 'windows' : 'make -f make_mingw32.mak',
+            \ 'cygwin' : 'make -f make_cygwin.mak',
+            \ 'mac' : 'make -f make_mac.mak',
+            \ 'unix' : 'make -f make_unix.mak',
+          \ },
+      \ }                                   " vimproc-ja        : 非同期処理系
+
 NeoBundle 'Shougo/vimshell'             " Shell             : シェル
 NeoBundle 'Shougo/neocomplcache'        " NeoComplCache     : キーワード補完
 NeoBundle 'Shougo/neosnippet'           " NeoSnippet        : Snippet補完
 NeoBundle 'Shougo/neomru.vim'           " NeoMRU            : 最近開いたファイル
+NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
+
+
+" ====================
+" Syntax Settings{
+" ====================
 NeoBundle 'scrooloose/syntastic'        " Syntastic         : シンタックスチェック
 NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
-NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
+"NeoBundle 'vim-scripts/smarty-syntax'   " Smarty            : Smartyのシンタックス
+NeoBundle 'vim-scripts/smarty.vim'      " Smarty            : Smartyのシンタックス
+" ====================
+"   }
+" ====================
 
 
 " ====================
@@ -133,7 +151,7 @@ NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/Guardian'
 
-colorscheme moria
+colorscheme mustang
 " ====================
 "   }
 " ====================
