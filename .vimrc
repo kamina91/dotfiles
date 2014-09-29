@@ -100,6 +100,36 @@ NeoBundle 'Shougo/vimproc', {
 
 NeoBundle 'Shougo/vimshell'             " Shell             : シェル
 NeoBundle 'Shougo/neocomplcache'        " NeoComplCache     : キーワード補完
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : ''
+\ }
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <expr><CR> neocomplcache#smart_close_popup()
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
 NeoBundle 'Shougo/neosnippet'           " NeoSnippet        : Snippet補完
 NeoBundle 'Shougo/neomru.vim'           " NeoMRU            : 最近開いたファイル
 NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
@@ -110,8 +140,6 @@ NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
 " ====================
 NeoBundle 'scrooloose/syntastic'        " Syntastic         : シンタックスチェック
 NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
-"NeoBundle 'vim-scripts/smarty-syntax'   " Smarty            : Smartyのシンタックス
-NeoBundle 'vim-scripts/smarty.vim'      " Smarty            : Smartyのシンタックス
 " ====================
 "   }
 " ====================
@@ -151,7 +179,7 @@ NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/Guardian'
 
-colorscheme mustang
+colorscheme twilight
 " ====================
 "   }
 " ====================
