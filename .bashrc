@@ -6,16 +6,24 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
-alias ll='ls -alg --color=auto'
-alias ls='ls --color=auto'
+case "${OSTYPE}" in
+    darwin*)
+        alias ls="ls -G"
+        alias ll="ls -alG"
+        ;;
+    linux*)
+        alias ls='ls --color'
+        alias ll='ls -al --color'
+        ;;
+esac
 alias vi='vim'
 alias vhdir='cd /etc/httpd/conf.d/'
 alias webdir='cd /var/www/html/'
 alias rs='sudo apachectl restart'
 
 # Git Completion
-source /usr/local/git/contrib/completion/git-prompt.sh
-source /usr/local/git/contrib/completion/git-completion.bash
+source ~/dotfiles/.git-prompt.sh
+source ~/dotfiles/.git-completion.bash
 
 # Display Git Branch name
 GIT_PS1_SHOWDIRTYSTATE=true

@@ -130,7 +130,8 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-NeoBundle 'Shougo/neosnippet'           " NeoSnippet        : Snippet補完
+
+NeoBundle 'Shougo/neosnippet-snippets'           " NeoSnippet        : Snippet補完
 NeoBundle 'Shougo/neomru.vim'           " NeoMRU            : 最近開いたファイル
 NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
 
@@ -180,6 +181,7 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/Guardian'
 
 colorscheme twilight
+
 " ====================
 "   }
 " ====================
