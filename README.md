@@ -8,7 +8,6 @@ dotfiles (CentOS 6.5)
 1. git clone
 1. chmod +x init_dotfile.sh
 1. sh init_dotfile.sh
-1. make vimproc
 1. :NeoBundleInstall
 1. XD
 
