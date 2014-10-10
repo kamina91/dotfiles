@@ -90,7 +90,6 @@ endif
 
 
 " originalrepos on github
-NeoBundle 'Shougo/neobundle.vim'        " NeoBundle         : パッケージマネージャ
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
         \ 'windows' : 'make -f make_mingw32.mak',
