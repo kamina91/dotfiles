@@ -8,7 +8,8 @@ if [ -e ~/dotfiles/vimfiles/bundle/neobundle.vim ]; then
     echo "neobundle found"
 else
     echo "install neobundle"
-    git clone git://github.com/Shougo/neobundle.vim ~/dotfiles/vimfiles/bundle/neobundle.vim
+    mkdir -p ~/dotfiles/vimfiles/bundle/
+    git clone https://github.com/Shougo/neobundle.vim ~/dotfiles/vimfiles/bundle/neobundle.vim
 
     # update vim plugins
     git submodule init
