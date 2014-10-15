@@ -70,7 +70,7 @@ nmap <C-W>O :vp
 set nocompatible               " be iMproved
 filetype off
 
-"NeoBundle
+" ------------------------NeoBundle------------------------ "
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
@@ -80,7 +80,7 @@ call neobundle#end()
 
 filetype plugin indent on     " required!
 
-" Installation check.
+" Installation check
 if neobundle#exists_not_installed_bundles()
   echomsg 'Not installed bundles : ' .
     \ string(neobundle#get_not_installed_bundle_names())
@@ -88,8 +88,7 @@ if neobundle#exists_not_installed_bundles()
           "finish
 endif
 
-
-" originalrepos on github
+" Plugins
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
         \ 'windows' : 'make -f make_mingw32.mak',
@@ -98,60 +97,56 @@ NeoBundle 'Shougo/vimproc', {
         \ 'unix' : 'make -f make_unix.mak',
   \ },
 \ }                                     " vimproc-ja        : 非同期処理系
-
 NeoBundle 'Shougo/vimshell'             " Shell             : シェル
 NeoBundle 'Shougo/neocomplcache'        " NeoComplCache     : キーワード補完
-" Disable AutoComplPop.
+NeoBundle 'Shougo/neosnippet-snippets'  " NeoSnippet        : Snippet補完
+NeoBundle 'Shougo/neomru.vim'           " NeoMRU            : 最近開いたファイル
+NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
+NeoBundle 'scrooloose/syntastic'        " Syntastic         : シンタックスチェック
+NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
+NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インターフェース
+NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
+" \Plugins
+
+" ====================
+" Complement Settings{
+" ====================
+" Disable AutoComplPop
 let g:acp_enableAtStartup = 0
-" Use neocomplcache.
+" Use neocomplcache
 let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
+" Use smartcase
 let g:neocomplcache_enable_smart_case = 1
-" Set minimum syntax keyword length.
+" Set minimum syntax keyword length
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-" Define dictionary.
+" Define dictionary
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : ''
 \ }
 
-" Plugin key-mappings.
+" Plugin key-mappings
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
+" Recommended key-mappings
+" <CR>: close popup and save indent
 inoremap <expr><CR> neocomplcache#smart_close_popup()."<CR>"
-" <TAB>: completion.
+" <TAB>: completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
+" <C-h>, <BS>: close popup and delete backword char
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
-
-
-NeoBundle 'Shougo/neosnippet-snippets'           " NeoSnippet        : Snippet補完
-NeoBundle 'Shougo/neomru.vim'           " NeoMRU            : 最近開いたファイル
-NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
-
-
-" ====================
-" Syntax Settings{
-" ====================
-NeoBundle 'scrooloose/syntastic'        " Syntastic         : シンタックスチェック
-NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
 " ====================
 "   }
 " ====================
 
-
 " ====================
 " Unite Settings{
 " ====================
-NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インターフェース
-NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
@@ -160,12 +155,6 @@ nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
 " ====================
 "   }
 " ====================
-
-" インデントに色を付けて見やすくする
-"NeoBundle 'nathanaelkane/vim-indent-guides'
-" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
-"let g:indent_guides_enable_on_vim_startup = 1
-
 
 " ====================
 " Color Scheme Import{
@@ -180,13 +169,11 @@ NeoBundle 'croaker/mustang-vim'
 NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/Guardian'
-
-colorscheme twilight
-
 " ====================
 "   }
 " ====================
 
+colorscheme twilight
+
 filetype indent on
 syntax on
-set background=dark
