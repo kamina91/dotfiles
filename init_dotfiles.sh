@@ -12,8 +12,8 @@ else
     git clone https://github.com/Shougo/neobundle.vim ~/dotfiles/vimfiles/bundle/neobundle.vim
 
     # update vim plugins
-    git submodule init
-    git submodule foreach 'git pull origin master'
+    # git submodule init
+    # git submodule foreach 'git pull origin master'
 fi
 
 # make symlink
