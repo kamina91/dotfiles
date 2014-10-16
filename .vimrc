@@ -73,9 +73,6 @@ if has('vim_starting')
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
-
-filetype plugin indent on     " required!
 
 " Installation check
 if neobundle#exists_not_installed_bundles()
@@ -96,14 +93,36 @@ NeoBundle 'Shougo/vimproc', {
 \ }                                     " vimproc-ja        : 非同期処理系
 NeoBundle 'Shougo/vimshell'             " Shell             : シェル
 NeoBundle 'Shougo/neocomplcache'        " NeoComplCache     : キーワード補完
-NeoBundle 'Shougo/neosnippet-snippets'  " NeoSnippet        : Snippet補完
 NeoBundle 'Shougo/neomru.vim'           " NeoMRU            : 最近開いたファイル
 NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
 NeoBundle 'scrooloose/syntastic'        " Syntastic         : シンタックスチェック
 NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
 NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インターフェース
 NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
+
+"NeoBundle 'Shougo/neosnippet-snippets'  " NeoSnippet        : Snippet補完
+
+" ====================
+" Color Scheme Import{
+" ====================
+NeoBundle 'sjl/badwolf'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'ciaranm/inkpot'
+NeoBundle 'djjcast/mirodark'
+NeoBundle 'vim-scripts/twilight'
+NeoBundle 'vim-scripts/moria'
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'vim-scripts/Guardian'
+" ====================
+"   }
+" ====================
 " \Plugins
+
+filetype plugin indent on
+colorscheme twilight
+call neobundle#end()
 
 " ====================
 " Complement Settings{
@@ -155,23 +174,4 @@ nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 "   }
 " ====================
 
-" ====================
-" Color Scheme Import{
-" ====================
-NeoBundle 'sjl/badwolf'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'ciaranm/inkpot'
-NeoBundle 'djjcast/mirodark'
-NeoBundle 'vim-scripts/twilight'
-NeoBundle 'vim-scripts/moria'
-NeoBundle 'croaker/mustang-vim'
-NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/Guardian'
-" ====================
-"   }
-" ====================
-
-colorscheme twilight
-filetype indent on
 syntax on
