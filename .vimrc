@@ -1,4 +1,4 @@
-"-------common--------
+" ------------------------Common------------------------ "
 "タイトルをバッファ名に変更しない
 set notitle
 set shortmess+=I
@@ -14,9 +14,6 @@ set tabstop=4
 set autoindent
 set expandtab
 set shiftwidth=4
-
-"VIM互換にしない
-set nocompatible
 
 "複数ファイルの編集を可能にする
 set hidden
@@ -67,8 +64,8 @@ nmap <C-W>o :sp
 "C-W,Oでファイルを指定して縦分割、オープン
 nmap <C-W>O :vp
 
-set nocompatible               " be iMproved
-filetype off
+"VIM互換にしない
+set nocompatible
 
 " ------------------------NeoBundle------------------------ "
 if has('vim_starting')
@@ -152,6 +149,8 @@ let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
 " ノーマルモードで ,uu と入力すると履歴を表示するマッピング
 nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+" ノーマルモードで ,uy と入力すると yank の履歴を表示するマッピング
+nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 " ====================
 "   }
 " ====================
@@ -174,6 +173,5 @@ NeoBundle 'vim-scripts/Guardian'
 " ====================
 
 colorscheme twilight
-
 filetype indent on
 syntax on

@@ -6,11 +6,13 @@ cd $(dirname $0)
 # download neobundle files
 if [ -e ~/dotfiles/vimfiles/bundle/neobundle.vim ]; then
     echo "neobundle found"
+    is_existed=true
 else
     echo "install neobundle"
     mkdir -p ~/dotfiles/vimfiles/bundle/
     git clone https://github.com/Shougo/neobundle.vim ~/dotfiles/vimfiles/bundle/neobundle.vim
 
+    is_existed=false
     # update vim plugins
     # git submodule init
     # git submodule foreach 'git pull origin master'
@@ -33,6 +35,15 @@ if [ -e ~/.vim ]; then
 else
     ln -vFis ~/dotfiles/vimfiles ~/.vim;
 fi
+
+if [ "${is_existed}" == true ]; then
+    echo "running NeoBundleUpdate...\n"
+    vim -u ~/.vimrc -i NONE -c "try | NeoBundleUpdate! | finally | q! | endtry" -e -s -V1
+else
+    echo "running NeoBundleInstall...\n"
+    vim -u ~/.vimrc -i NONE -c "try | NeoBundleInstall! | finally | q! | endtry" -e -s -V1
+fi
+echo "\ncompleted!"
 
 # 2-factor authentication
 case "${OSTYPE}" in
