@@ -100,8 +100,6 @@ NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタ�
 NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インターフェース
 NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
 
-"NeoBundle 'Shougo/neosnippet-snippets'  " NeoSnippet        : Snippet補完
-
 " ====================
 " Color Scheme Import{
 " ====================
@@ -120,9 +118,9 @@ NeoBundle 'vim-scripts/Guardian'
 " ====================
 " \Plugins
 
+call neobundle#end()
 filetype plugin indent on
 colorscheme twilight
-call neobundle#end()
 
 " ====================
 " Complement Settings{
