@@ -9,6 +9,8 @@ fi
 
 PATH=$PATH:$HOME/bin
 
-export PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if [ -d ~/.rbenv ]; then
+    export PATH
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
