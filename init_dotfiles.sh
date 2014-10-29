@@ -21,6 +21,8 @@ for dotfiles in .?*; do
             continue;;
         .git)
             continue;;
+        .gitignore)
+            continue;;
         *)
             ln -Fis "$PWD/$dotfiles" $HOME;;
     esac
