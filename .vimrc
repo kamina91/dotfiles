@@ -210,3 +210,6 @@ command! -bar -nargs=+ -complete=file Compare  call s:compare(<f-args>)
 "   }
 " ====================
 syntax on
+
+" open quick-window after grep
+autocmd QuickFixCmdPost *grep* cwindow
