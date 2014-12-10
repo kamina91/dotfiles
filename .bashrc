@@ -5,6 +5,10 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+if [ -f ~/.local.bash ]; then
+	. ~/.local.bash
+fi
+
 # User specific aliases and functions
 case "${OSTYPE}" in
     darwin*)
