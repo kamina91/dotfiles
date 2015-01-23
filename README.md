@@ -17,5 +17,5 @@ dotfiles (CentOS 6.5)
 
 ##動作環境
 
-- Unix系(CentOS 6.5, OS X 10.9.5のみ確認済み)
+- Unix系(CentOS 6.5, OS X 10.9.5, Ubuntu 14.04のみ確認済み)
 - DOS系ではまず動かないと考えられます
