@@ -59,10 +59,13 @@ set statusline=%<%f\%m%r%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%v
 " ファイルへの相対パスを表示する
 let g:Powerline_stl_path_style = 'relative'
 
-"C-W,oでファイルを指定して横分割、オープン
+"C-w,oでファイルを指定して横分割、オープン
 nmap <C-W>o :sp
-"C-W,Oでファイルを指定して縦分割、オープン
+"C-w,Oでファイルを指定して縦分割、オープン
 nmap <C-W>O :vp
+
+"C-pで"0レジスタの内容をコピーする
+nmap <silent> <C-p> "0p
 
 "VIM互換にしない
 set nocompatible
