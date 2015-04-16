@@ -103,6 +103,7 @@ NeoBundle 'scrooloose/syntastic'        " Syntastic         : シンタックス
 NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
 NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インターフェース
 NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
+NeoBundle 'thinca/vim-quickrun'         " quickrun          : リアルタイム実行
 
 " ====================
 " Color Scheme Import{
@@ -177,6 +178,21 @@ nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 " ====================
 
 " ====================
+" Quickrun settings{
+" ====================
+augroup QuickRunPHPUnit
+    autocmd!
+    autocmd BufWinEnter,BufNewFile *test.php set filetype=php.unit
+    autocmd BufWinEnter,BufNewFile *Test.php set filetype=php.unit
+augroup END
+
+let g:quickrun_config = {}
+let g:quickrun_config._ = {'runner' : 'vimproc'}
+" ====================
+"   }
+" ====================
+
+" ====================
 " Command settings{
 " ====================
 " Diff{
@@ -213,6 +229,10 @@ command! -bar -nargs=+ -complete=file Compare  call s:compare(<f-args>)
 " ====================
 "   }
 " ====================
+
+if filereadable('.local.vimrc')
+    source .local.vimrc
+endif
 syntax on
 
 " open quick-window after grep
