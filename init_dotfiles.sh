@@ -41,7 +41,6 @@ else
     echo "running NeoBundleInstall...\n"
     vim -u ~/.vimrc -i NONE -c "try | NeoBundleInstall! | finally | q! | endtry" -e -s -V1
 fi
-echo "\ncompleted!"
 
 # 2-factor authentication
 case "${OSTYPE}" in
