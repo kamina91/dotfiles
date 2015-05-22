@@ -24,6 +24,7 @@ alias vi='vim'
 alias vhdir='cd /etc/httpd/conf.d/'
 alias webdir='cd /var/www/html/'
 alias rs='sudo apachectl restart'
+alias sudoenv='sudo -u ${USER} -i'
 
 # Git Completion
 source ~/dotfiles/.git-prompt.sh
