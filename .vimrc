@@ -70,6 +70,9 @@ nmap <silent> <C-p> "0p
 "VIM互換にしない
 set nocompatible
 
+" Leaderを , に設定
+let mapleader = ","
+
 " ------------------------NeoBundle------------------------ "
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
@@ -104,6 +107,7 @@ NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタ�
 NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インターフェース
 NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
 NeoBundle 'thinca/vim-quickrun'         " quickrun          : リアルタイム実行
+NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
 
 " ====================
 " Color Scheme Import{
@@ -170,9 +174,9 @@ let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
 " ノーマルモードで ,uu と入力すると履歴を表示するマッピング
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> <Leader>uu :<C-u>Unite file_mru buffer<CR>
 " ノーマルモードで ,uy と入力すると yank の履歴を表示するマッピング
-nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
+nnoremap <silent> <Leader>uy :<C-u>Unite history/yank<CR>
 " ====================
 "   }
 " ====================
