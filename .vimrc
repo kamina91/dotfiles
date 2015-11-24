@@ -15,6 +15,9 @@ set autoindent
 set expandtab
 set shiftwidth=4
 
+"自動的にペーストモードを終了する
+autocmd InsertLeave * set nopaste
+
 "複数ファイルの編集を可能にする
 set hidden
 
