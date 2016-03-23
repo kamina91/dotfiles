@@ -12,6 +12,7 @@ set t_Co=256
 "Tabをスペース4つに展開＆Tabの設定
 set tabstop=4
 set autoindent
+set smartindent
 set expandtab
 set shiftwidth=4
 
@@ -31,10 +32,11 @@ set updatetime=0
 set ambiwidth=double
 
 "行間をでシームレスに移動する
-set whichwrap+=h,l,<,>,[,],b,s
+set whichwrap=b,s,h,l,<,>,[,] 
 
 "Backspace Settings
-set backspace=start,eol,indent
+"set backspace=start,eol,indent
+set backspace=2
 
 "コマンドラインでTABで補完できるようにする
 set wildchar=<C-Z>
@@ -47,6 +49,12 @@ au BufRead,BufNewFile *.scss set filetype=sass
 
 "検索結果をハイライトする
 set hlsearch
+"入力完了を待たずに検索結果を表示する
+set incsearch
+"大文字小文字区別なしに検索
+set ignorecase
+"大文字が含まれるときだけ区別して検索
+set smartcase
 
 " <Esc> 連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
