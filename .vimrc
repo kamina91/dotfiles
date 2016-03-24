@@ -3,9 +3,6 @@
 set notitle
 set shortmess+=I
 
-"VIM互換にしない
-set nocompatible
-
 "ターミナル接続を高速にする
 set ttyfast
 
@@ -38,11 +35,12 @@ set ambiwidth=double
 set whichwrap=b,s,h,l,<,>,[,] 
 
 "Backspace Settings
-"set backspace=start,eol,indent
-set backspace=2
+set backspace=start,eol,indent
 
-"コマンドラインでTABで補完できるようにする
-set wildchar=<C-Z>
+"コマンドライン上をTABで補完できるようにする
+set wildmenu
+set wildchar=<Tab>
+set wildmode=longest:full,full
 
 "C-vの矩形選択で行末より後ろもカーソルを置ける
 set virtualedit=block
@@ -68,7 +66,6 @@ set number
 set laststatus=2
 " ステータス行の内容を変更
 set statusline=%<%f\%m%r%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%v
-"set statusline=%{expand('%:p:t')}\ %<[%{expand('%:p:h')}]%=\%m%r%y%w[%{&fenc!=''?&fenc:&enc}][%{&ff}][%3l,%3c,%3p]
 " ファイルへの相対パスを表示する
 let g:Powerline_stl_path_style = 'relative'
 
@@ -121,6 +118,7 @@ NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インター
 NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
 NeoBundle 'thinca/vim-quickrun'         " quickrun          : リアルタイム実行
 NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
+NeoBundle 'itchyny/thumbnail.vim'       " thumbnail         : バッファーのサムネイル表示
 
 " ====================
 " Color Scheme Import{
@@ -135,6 +133,8 @@ NeoBundle 'croaker/mustang-vim'
 NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'vim-scripts/Guardian'
+NeoBundle 'itchyny/lightline.vim'       " statusline      : ステータスラインの色設定等
+
 " ====================
 "   }
 " ====================
@@ -244,6 +244,16 @@ function! s:compare(...)
 endfunction
 command! -bar -nargs=+ -complete=file Compare  call s:compare(<f-args>)
 " }
+" ====================
+"   }
+" ====================
+
+" ====================
+" Lightline settings{
+" ====================
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
 " ====================
 "   }
 " ====================
