@@ -252,7 +252,7 @@ command! -bar -nargs=+ -complete=file Compare  call s:compare(<f-args>)
 " Lightline settings{
 " ====================
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'powerline',
       \ }
 " ====================
 "   }
