@@ -3,6 +3,9 @@
 set notitle
 set shortmess+=I
 
+"VIM互換にしない
+set nocompatible
+
 "ターミナル接続を高速にする
 set ttyfast
 
@@ -44,9 +47,6 @@ set wildchar=<C-Z>
 "C-vの矩形選択で行末より後ろもカーソルを置ける
 set virtualedit=block
 
-"SCSS用のシンタックス設定
-au BufRead,BufNewFile *.scss set filetype=sass
-
 "検索結果をハイライトする
 set hlsearch
 "入力完了を待たずに検索結果を表示する
@@ -55,6 +55,8 @@ set incsearch
 set ignorecase
 "大文字が含まれるときだけ区別して検索
 set smartcase
+"ビジュアルモードで選択中に*キーで検索
+vnoremap * "zy:let @/ = @z<CR>n
 
 " <Esc> 連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
@@ -78,11 +80,11 @@ nmap <C-W>O :vp
 "C-pで"0レジスタの内容をコピーする
 nmap <silent> <C-p> "0p
 
-"VIM互換にしない
-set nocompatible
-
 " Leaderを , に設定
 let mapleader = ","
+
+"SCSS用のシンタックス設定
+au BufRead,BufNewFile *.scss set filetype=sass
 
 " ------------------------NeoBundle------------------------ "
 if has('vim_starting')
