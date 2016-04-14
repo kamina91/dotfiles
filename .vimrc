@@ -1,4 +1,6 @@
 " ------------------------Common------------------------ "
+set nocompatible
+
 "タイトルをバッファ名に変更しない
 set notitle
 set shortmess+=I

@@ -35,10 +35,10 @@ fi
 
 # install & update NeoBundle plugins
 if [ "${is_existed}" == true ]; then
-    echo "running NeoBundleUpdate...\n"
+    echo "running NeoBundleUpdate..."
     vim -u ~/.vimrc -i NONE -c "try | NeoBundleUpdate! | finally | q! | endtry" -e -s -V1
 else
-    echo "running NeoBundleInstall...\n"
+    echo "running NeoBundleInstall..."
     vim -u ~/.vimrc -i NONE -c "try | NeoBundleInstall! | finally | q! | endtry" -e -s -V1
 fi
 
