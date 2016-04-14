@@ -118,10 +118,7 @@ NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インター
 NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
 NeoBundle 'thinca/vim-quickrun'         " quickrun          : リアルタイム実行
 NeoBundle 'itchyny/thumbnail.vim'       " thumbnail         : バッファーのサムネイル表示
-
-" for PHP
 NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
-NeoBundle 'tobyS/pdv'                   " PDV               : PHP Documentor for Vim
 
 " ====================
 " Color Scheme Import{
