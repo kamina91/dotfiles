@@ -26,6 +26,7 @@ alias webdir='cd /var/www/html/'
 alias rs='sudo apachectl restart'
 alias sudoenv='sudo -u ${USER} -i'
 alias grep='grep --color -rnIie'
+alias rmswp='find -name '*.swp' | xargs rm'
 
 # Git Completion
 source ~/dotfiles/.git-prompt.sh
