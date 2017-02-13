@@ -209,12 +209,40 @@ nnoremap <silent> <Leader>uy :<C-u>Unite history/yank<CR>
 " ====================
 " FuzzyFinder settings{
 " ====================
+function! FufSetIgnore()
+    let ignorefiles = [ $HOME . "/.gitignore", ".gitignore" ]
+    let exclude_vcs = '\.(hg|git|bzr|svn|cvs)'
+    let ignore = '\v\~$'
+
+    for ignorefile in ignorefiles
+
+        if filereadable(ignorefile)
+            for line in readfile(ignorefile)
+                if match(line, '^\s*$') == -1 && match(line, '^#') == -1
+                    let line = substitute(line, '^/', '', '')
+                    let line = substitute(line, '\.', '\\.', 'g')
+                    let line = substitute(line, '\*', '.*', 'g')
+                    let ignore .= '|^' . line
+                endif
+            endfor
+        endif
+
+        let ignore .= '|^' . exclude_vcs
+        let g:fuf_coveragefile_exclude = ignore
+        let g:fuf_file_exclude = ignore
+        let g:fuf_dir_exclude = ignore
+
+    endfor
+endfunction
+
+# Custom key mappings for FuzzyFinder
+# Calls the function to set the exclude variables, then runs FuzzyFinder
+nnoremap <Leader>ff :call FufSetIgnore() <BAR> :FufFile<CR>
+nnoremap <Leader>fr :call FufSetIgnore() <BAR> :FufFile **/<CR>
+nnoremap <Leader>fm :call FufSetIgnore() <BAR> :FufMruFile<CR>
+
 let g:fuf_keyOpen = '<Tab>'
 let g:fuf_keyOpenTabpage = '<CR>'
-
-nnoremap <Leader>ff :<C-u>FufFile **/<CR>
-nnoremap <Leader>fm :<C-u>FufMruFile<CR>
-
 " ====================
 "   }
 " ====================
