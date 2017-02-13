@@ -127,7 +127,9 @@ NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インター
 NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
 NeoBundle 'thinca/vim-quickrun'         " quickrun          : リアルタイム実行
 NeoBundle 'itchyny/thumbnail.vim'       " thumbnail         : バッファーのサムネイル表示
-NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
+NeoBundle 'FuzzyFinder'                 " FuzzyFinder       : ファジーサーチ
+
+"NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
 
 " ====================
 " Color Scheme Import{
@@ -204,17 +206,30 @@ nnoremap <silent> <Leader>uy :<C-u>Unite history/yank<CR>
 " ====================
 
 " ====================
+" FuzzyFinder settings{
+" ====================
+let g:fuf_keyOpen = '<Tab>'
+let g:fuf_keyOpenTabpage = '<CR>'
+
+nnoremap <Leader>ff :<C-u>FufFile **/<CR>
+nnoremap <Leader>fm :<C-u>FufMruFile<CR>
+
+" ====================
+"   }
+" ====================
+
+" ====================
 " Quickrun settings{
 " ====================
-augroup QuickRunPHPUnit
-    autocmd!
-    autocmd BufWinEnter,BufNewFile *test.php set filetype=php.unit
-    autocmd BufWinEnter,BufNewFile *Test.php set filetype=php.unit
-augroup END
-
-let g:quickrun_config = {}
-"let g:quickrun_config._ = {'runner' : 'vimproc'}
-let g:quickrun_config['php.unit'] = {'command' : 'phpunit'}
+"augroup QuickRunPHPUnit
+"    autocmd!
+"    autocmd BufWinEnter,BufNewFile *test.php set filetype=php.unit
+"    autocmd BufWinEnter,BufNewFile *Test.php set filetype=php.unit
+"augroup END
+"
+"let g:quickrun_config = {}
+""let g:quickrun_config._ = {'runner' : 'vimproc'}
+"let g:quickrun_config['php.unit'] = {'command' : 'phpunit'}
 " ====================
 "   }
 " ====================
