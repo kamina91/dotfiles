@@ -237,8 +237,8 @@ function! FufSetIgnore()
     endfor
 endfunction
 
-# Custom key mappings for FuzzyFinder
-# Calls the function to set the exclude variables, then runs FuzzyFinder
+" Custom key mappings for FuzzyFinder
+" Calls the function to set the exclude variables, then runs FuzzyFinder
 nnoremap <Leader>ff :call FufSetIgnore() <BAR> :FufFile<CR>
 nnoremap <Leader>fr :call FufSetIgnore() <BAR> :FufFile **/<CR>
 nnoremap <Leader>fm :call FufSetIgnore() <BAR> :FufMruFile<CR>
