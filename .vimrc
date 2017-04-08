@@ -74,9 +74,9 @@ set number
 " ステータス行の表示
 set laststatus=2
 " ステータス行の内容を変更
-set statusline=%<%f\%m%r%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%v
+"set statusline=%<%f\%m%r%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%v
 " ファイルへの相対パスを表示する
-let g:Powerline_stl_path_style = 'relative'
+"let g:Powerline_stl_path_style = 'relative'
 
 "C-w,oでファイルを指定して横分割、オープン
 nmap <C-W>o :sp
@@ -144,6 +144,7 @@ NeoBundle 'vim-scripts/moria'
 NeoBundle 'croaker/mustang-vim'
 NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/Guardian'
 NeoBundle 'itchyny/lightline.vim'       " statusline      : ステータスラインの色設定等
 
@@ -154,7 +155,8 @@ NeoBundle 'itchyny/lightline.vim'       " statusline      : ステータスラ�
 
 call neobundle#end()
 filetype plugin indent on
-colorscheme twilight
+set background=dark
+colorscheme solarized
 
 " ====================
 " Complement Settings{
@@ -305,8 +307,63 @@ command! -bar -nargs=+ -complete=file Compare  call s:compare(<f-args>)
 " Lightline settings{
 " ====================
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ }
+        \ 'colorscheme': 'solarized',
+        \ 'mode_map': {'c': 'NORMAL'},
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+        \ },
+        \ 'component_function': {
+        \   'modified': 'LightlineModified',
+        \   'readonly': 'LightlineReadonly',
+        \   'fugitive': 'LightlineFugitive',
+        \   'filename': 'LightlineFilename',
+        \   'fileformat': 'LightlineFileformat',
+        \   'filetype': 'LightlineFiletype',
+        \   'fileencoding': 'LightlineFileencoding',
+        \   'mode': 'LightlineMode'
+        \ }
+        \ }
+
+function! LightlineModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightlineReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+endfunction
+
+function! LightlineFilename()
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
+
+function! LightlineFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+    return fugitive#head()
+  else
+    return ''
+  endif
+endfunction
+
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightlineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightlineMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
 " ====================
 "   }
 " ====================
