@@ -109,8 +109,17 @@ precmd() {
 #時刻を表示させる
 alias history='history -E'
 alias vi='vim'
-alias ls='ls --color'
-alias ll='ls -al --color'
+
+case "${OSTYPE}" in
+    darwin*)
+        alias ls="ls -G"
+        alias ll="ls -alG"
+        ;;
+    linux*)
+        alias ls='ls --color'
+        alias ll='ls -al --color'
+        ;;
+esac
 
 # [after alias]cdコマンド実行後、llを実行する
 function cd() {
