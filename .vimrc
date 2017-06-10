@@ -129,6 +129,7 @@ NeoBundle 'thinca/vim-quickrun'         " quickrun          : リアルタイム
 NeoBundle 'itchyny/thumbnail.vim'       " thumbnail         : バッファーのサムネイル表示
 NeoBundle 'L9'                          " L9                : ファジーサーチが依存しているライブラリ
 NeoBundle 'FuzzyFinder'                 " FuzzyFinder       : ファジーサーチ
+NeoBundle 'tpope/vim-fugitive'          " fugitive          : vimとgit連携
 
 "NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
 
