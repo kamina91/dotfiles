@@ -35,7 +35,10 @@ set hidden
 set autoread
 
 "Swapを作るまでの時間m秒
-set updatetime=0
+"set updatetime=0
+
+"Swapを作らない
+set noswapfile
 
 "Unicodeで行末が変になる問題を解決
 set ambiwidth=double
