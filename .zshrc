@@ -52,29 +52,56 @@ function history-all { history -E 1 }
 export LSCOLORS=Exfxcxdxbxegedabagacad
 # 補完時の色の設定
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-# ZLS_COLORSとは？
+
 export ZLS_COLORS=$LS_COLORS
-# lsコマンド時、自動で色がつく(ls -Gのようなもの？)
+# lsコマンド時、自動で色がつく
 export CLICOLOR=true
 # 補完候補に色を付ける
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 ### Prompt ###
 # プロンプトに色を付ける
-autoload -U colors; colors
+#autoload -U colors; colors
+# git 関連
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:*' max-exports 7
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' formats '%R' '%S' '%b' '%s' '%c' '%u'
+zstyle ':vcs_info:*' actionformats '%R' '%S' '%b|%a' '%s' '%c' '%u'
+
+function echo_rprompt() {
+    branch="$vcs_info_msg_2_"
+    if [ -n "$vcs_info_msg_1_" ]; then
+        repos=`print -nD "$vcs_info_msg_0_"`
+        if [ -n "$vcs_info_msg_4_" ]; then # staged
+            #branch="%F{green}($branch +)%f"
+            branch="%F{red}($branch +)%f"
+        elif [ -n "$vcs_info_msg_5_" ]; then # unstaged
+            #branch="%F{red}($branch *)%f"
+            branch="%F{red}($branch *)%f"
+        else
+            #branch="%F{blue}($branch)%f"
+            branch="%F{yellow}($branch)%f"
+        fi
+    else
+        branch=''
+    fi
+    print -n "$branch"
+}
+
 # 一般ユーザ時
-tmp_prompt="%F{cyan}[%n@%D{%m/%d %T}]%f "
-#tmp_prompt="%{${fg[cyan]}%}%n%# %{${reset_color}%}"
-tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
-tmp_rprompt="%{${fg[green]}%}[%~]%{${reset_color}%}"
-tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
+tmp_prompt='%F{cyan}[%n %D{%m/%d %T}]%f '
+tmp_prompt2='%F{cyan}_> %f'
+tmp_rprompt='%F{green}[%~]%f `echo_rprompt`'
+tmp_sprompt='%F{yellow}%r is correct? [Yes, No, Abort, Edit]:%f'
 
 # rootユーザ時(太字にし、アンダーバーをつける)
 if [ ${UID} -eq 0 ]; then
-  tmp_prompt="%B%U${tmp_prompt}%u%b"
-  tmp_prompt2="%B%U${tmp_prompt2}%u%b"
-  tmp_rprompt="%B%U${tmp_rprompt}%u%b"
-  tmp_sprompt="%B%U${tmp_sprompt}%u%b"
+  tmp_prompt='%B%U${tmp_prompt}%u%b'
+  tmp_prompt2='%B%U${tmp_prompt2}%u%b'
+  tmp_rprompt='%B%U${tmp_rprompt}%u%b'
+  tmp_sprompt='%B%U${tmp_sprompt}%u%b'
 fi
 
 PROMPT=$tmp_prompt    # 通常のプロンプト
@@ -83,21 +110,23 @@ RPROMPT=$tmp_rprompt  # 右側のプロンプト
 SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 # SSHログイン時のプロンプト
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-  PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
+  PROMPT='%{${fg[white]}%}${HOST%%.*} ${PROMPT}'
 ;
 
 #Title
 precmd() {
-  [[ -t 1 ]] || return
-  case $TERM in
-    *xterm*|rxvt|(dt|k|E)term)
-    print -Pn "\e]2;[%~]\a"
-  ;;
-    # screen)
-    #    #print -Pn "\e]0;[%n@%m %~] [%l]\a"
-    #    print -Pn "\e]0;[%n@%m %~]\a"
-    #    ;;
-  esac
+  if [[ -t 1 ]]; then
+      case $TERM in
+        *xterm*|rxvt|(dt|k|E)term)
+        print -Pn "\e]2;[%~]\a"
+      ;;
+        # screen)
+        #    #print -Pn "\e]0;[%n@%m %~] [%l]\a"
+        #    print -Pn "\e]0;[%n@%m %~]\a"
+        #    ;;
+      esac
+  fi
+  vcs_info
 }
 
 
@@ -125,3 +154,8 @@ esac
 function cd() {
   builtin cd $@ && ll;
 }
+
+# ローカル設定があればロード
+if [ -f ~/.local.zsh ]; then
+	. ~/.local.zsh
+fi
