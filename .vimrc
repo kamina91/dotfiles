@@ -372,8 +372,8 @@ endfunction
 "   }
 " ====================
 
-if filereadable('.local.vimrc')
-    source .local.vimrc
+if filereadable(expand('~/.local.vimrc'))
+    source ~/.local.vimrc
 endif
 syntax on
 
