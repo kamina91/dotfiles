@@ -125,7 +125,6 @@ NeoBundle 'Shougo/neocomplcache'        " NeoComplCache     : キーワード補
 NeoBundle 'Shougo/neomru.vim'           " NeoMRU            : 最近開いたファイル
 NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
 NeoBundle 'scrooloose/syntastic'        " Syntastic         : シンタックスチェック
-NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
 NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インターフェース
 NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
 NeoBundle 'thinca/vim-quickrun'         " quickrun          : リアルタイム実行
@@ -134,7 +133,10 @@ NeoBundle 'L9'                          " L9                : ファジーサー
 NeoBundle 'FuzzyFinder'                 " FuzzyFinder       : ファジーサーチ
 NeoBundle 'tpope/vim-fugitive'          " fugitive          : vimとgit連携
 
+NeoBundle 'slim-template/vim-slim'      " vim-slim          : slimのシンタックス
+"NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
 "NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
+"NeoBundle 'yuttie/comfortable-motion.vim'   " comfortable-motion    : スムーズなスクロール
 
 " ====================
 " Color Scheme Import{
@@ -150,6 +152,7 @@ NeoBundle 'jonathanfilip/vim-lucius'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-scripts/Guardian'
+NeoBundle 'cocopon/iceberg.vim'
 NeoBundle 'itchyny/lightline.vim'       " statusline      : ステータスラインの色設定等
 
 " ====================
@@ -159,8 +162,7 @@ NeoBundle 'itchyny/lightline.vim'       " statusline      : ステータスラ�
 
 call neobundle#end()
 filetype plugin indent on
-set background=dark
-colorscheme solarized
+colorscheme iceberg
 
 " ====================
 " Complement Settings{
@@ -244,8 +246,8 @@ endfunction
 " Custom key mappings for FuzzyFinder
 " Calls the function to set the exclude variables, then runs FuzzyFinder
 nnoremap <Leader>ff :call FufSetIgnore() <BAR> :FufFile<CR>
-nnoremap <Leader>fr :call FufSetIgnore() <BAR> :FufFile **/<CR>
-nnoremap <Leader>fm :call FufSetIgnore() <BAR> :FufMruFile<CR>
+"nnoremap <Leader>fr :call FufSetIgnore() <BAR> :FufFile **/<CR>
+"nnoremap <Leader>fm :call FufSetIgnore() <BAR> :FufMruFile<CR>
 
 let g:fuf_keyOpen = '<Tab>'
 let g:fuf_keyOpenTabpage = '<CR>'
@@ -311,22 +313,22 @@ command! -bar -nargs=+ -complete=file Compare  call s:compare(<f-args>)
 " Lightline settings{
 " ====================
 let g:lightline = {
-        \ 'colorscheme': 'solarized',
-        \ 'mode_map': {'c': 'NORMAL'},
-        \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-        \ },
-        \ 'component_function': {
-        \   'modified': 'LightlineModified',
-        \   'readonly': 'LightlineReadonly',
-        \   'fugitive': 'LightlineFugitive',
-        \   'filename': 'LightlineFilename',
-        \   'fileformat': 'LightlineFileformat',
-        \   'filetype': 'LightlineFiletype',
-        \   'fileencoding': 'LightlineFileencoding',
-        \   'mode': 'LightlineMode'
-        \ }
-        \ }
+    \ 'colorscheme': 'iceberg',
+    \ 'mode_map': {'c': 'NORMAL'},
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+    \ },
+    \ 'component_function': {
+    \   'modified': 'LightlineModified',
+    \   'readonly': 'LightlineReadonly',
+    \   'fugitive': 'LightlineFugitive',
+    \   'filename': 'LightlineFilename',
+    \   'fileformat': 'LightlineFileformat',
+    \   'filetype': 'LightlineFiletype',
+    \   'fileencoding': 'LightlineFileencoding',
+    \   'mode': 'LightlineMode'
+    \ }
+  \ }
 
 function! LightlineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
