@@ -7,4 +7,9 @@
     co = checkout
     br = branch
     cm = commit -m
+    st = status
+    ps = push
+    pl = pull
+    df = diff
+    ad = add
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
