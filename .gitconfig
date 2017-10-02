@@ -6,4 +6,5 @@
 [alias]
     co = checkout
     br = branch
+    cm = commit -m
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
