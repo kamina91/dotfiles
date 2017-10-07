@@ -150,6 +150,17 @@ case "${OSTYPE}" in
         ;;
 esac
 
+# [git alias] aliases
+alias gco='git co'
+alias gbr='git br'
+alias gst='git st'
+alias gcm='git cm'
+alias gps='git ps'
+alias gpl='git pl'
+alias gdf='git df'
+alias gad='git ad'
+
+
 # [after alias]cdコマンド実行後、llを実行する
 function cd() {
   builtin cd $@ && ll;
