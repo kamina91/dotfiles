@@ -28,6 +28,7 @@ alias gps='git ps'
 alias gpl='git pl'
 alias gdf='git df'
 alias gad='git ad'
+alias ggrep='git gr'
 
 # Git Completion
 source ~/dotfiles/.git-prompt.sh
