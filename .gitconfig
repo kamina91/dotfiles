@@ -12,6 +12,7 @@
     pl = pull
     df = diff
     ad = add
+    gr = grep
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [diff]
 	compactionHeuristic = true
