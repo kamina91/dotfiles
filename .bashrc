@@ -15,6 +15,10 @@ case "${OSTYPE}" in
         alias ls='ls --color'
         alias ll='ls -al --color'
         ;;
+    cygwin*)
+        alias ls='ls --color'
+        alias ll='ls -al --color'
+        ;;
 esac
 alias vi='vim'
 alias rmswp='find -name '*.swp' | xargs rm'
