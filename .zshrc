@@ -160,6 +160,8 @@ alias gpl='git pl'
 alias gdf='git df'
 alias gad='git ad'
 
+# [tmux]
+alias ta='tmux attach'
 
 # [after alias]cdコマンド実行後、llを実行する
 function cd() {
