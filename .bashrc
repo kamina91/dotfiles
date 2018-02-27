@@ -34,6 +34,9 @@ alias gdf='git df'
 alias gad='git ad'
 alias ggrep='git gr'
 
+# [tmux]
+alias ta='tmux attach'
+
 # Git Completion
 source ~/dotfiles/.git-prompt.sh
 source ~/dotfiles/.git-completion.bash
