@@ -11,12 +11,12 @@ set ttyfast
 "ターミナルで256色表示を使う
 set t_Co=256
 
-"Tabをスペース4つに展開＆Tabの設定
-set tabstop=4
+"Tabをスペース2つに展開＆Tabの設定
+set tabstop=2
 set autoindent
 set smartindent
 set expandtab
-set shiftwidth=4
+set shiftwidth=2
 
 "拡張子によってタブ幅を変更
 augroup fileTypeIndent
@@ -92,6 +92,8 @@ nmap <silent> <C-p> "0p
 " Leaderを , に設定
 let mapleader = ","
 
+set tabpagemax=20
+
 "SCSS用のシンタックス設定
 au BufRead,BufNewFile *.scss set filetype=sass
 
@@ -119,21 +121,23 @@ NeoBundle 'Shougo/vimproc', {
         \ 'mac' : 'make -f make_mac.mak',
         \ 'unix' : 'make -f make_unix.mak',
   \ },
-\ }                                     " vimproc-ja        : 非同期処理系
-NeoBundle 'Shougo/vimshell'             " Shell             : シェル
-NeoBundle 'Shougo/neocomplcache'        " NeoComplCache     : キーワード補完
-NeoBundle 'Shougo/neomru.vim'           " NeoMRU            : 最近開いたファイル
-NeoBundle 'scrooloose/nerdtree'         " NERDTree          : Filer
-NeoBundle 'scrooloose/syntastic'        " Syntastic         : シンタックスチェック
-NeoBundle 'Shougo/unite.vim'            " Unite             : 統合インターフェース
-NeoBundle 'tsukkee/unite-help'          " unite-help        : ヘルプ
-NeoBundle 'thinca/vim-quickrun'         " quickrun          : リアルタイム実行
-NeoBundle 'itchyny/thumbnail.vim'       " thumbnail         : バッファーのサムネイル表示
-NeoBundle 'L9'                          " L9                : ファジーサーチが依存しているライブラリ
-NeoBundle 'FuzzyFinder'                 " FuzzyFinder       : ファジーサーチ
-NeoBundle 'tpope/vim-fugitive'          " fugitive          : vimとgit連携
+\ }                                     " vimproc-ja          : 非同期処理系
+NeoBundle 'Shougo/vimshell'             " Shell               : シェル
+NeoBundle 'Shougo/neocomplcache'        " NeoComplCache       : キーワード補完
+NeoBundle 'Shougo/neosnippet'           " NeoSnippet          : スニペット
+NeoBundle 'Shougo/neosnippet-snippets'  " NeoSnippet-Snippets : スニペット
+NeoBundle 'Shougo/neomru.vim'           " NeoMRU              : 最近開いたファイル
+NeoBundle 'scrooloose/nerdtree'         " NERDTree            : Filer
+NeoBundle 'scrooloose/syntastic'        " Syntastic           : シンタックスチェック
+NeoBundle 'Shougo/unite.vim'            " Unite               : 統合インターフェース
+NeoBundle 'tsukkee/unite-help'          " unite-help          : ヘルプ
+NeoBundle 'thinca/vim-quickrun'         " quickrun            : リアルタイム実行
+NeoBundle 'itchyny/thumbnail.vim'       " thumbnail           : バッファーのサムネイル表示
+NeoBundle 'L9'                          " L9                  : ファジーサーチが依存しているライブラリ
+NeoBundle 'FuzzyFinder'                 " FuzzyFinder         : ファジーサーチ
+NeoBundle 'tpope/vim-fugitive'          " fugitive            : vimとgit連携
 
-NeoBundle 'slim-template/vim-slim'      " vim-slim          : slimのシンタックス
+NeoBundle 'slim-template/vim-slim'      " vim-slim            : slimのシンタックス
 "NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
 "NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
 "NeoBundle 'yuttie/comfortable-motion.vim'   " comfortable-motion    : スムーズなスクロール
@@ -251,6 +255,21 @@ nnoremap <Leader>ff :call FufSetIgnore() <BAR> :FufFile<CR>
 
 let g:fuf_keyOpen = '<Tab>'
 let g:fuf_keyOpenTabpage = '<CR>'
+" ====================
+"   }
+" ====================
+
+
+" ====================
+" Quickrun settings{
+" ====================
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 " ====================
 "   }
 " ====================

@@ -13,7 +13,8 @@ fi
 # User specific environment and startup programs
 
 #### START PATH settings ####
-PATH=$PATH:$HOME/bin
+mkdir -p -m +x $HOME/bin
+PATH=$HOME/bin:$PATH
 
 if [ -d ~/.rbenv ]; then
     export PATH="$HOME/.rbenv/bin:$PATH"
@@ -62,3 +63,7 @@ export PS1='\e[38;5;110m\]\u@\h\e[38;5;252m\]:\e[38;5;150m\]\w\e[38;5;216m\]$(__
 
 # Color Settings
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+
+export PROMPT_COMMAND="dispatch_hist"
+shopt -s histappend
+export PROMPT_COMMAND_HISTSAVE="history -a;"
