@@ -22,6 +22,7 @@ case "${OSTYPE}" in
 esac
 alias vi='vim'
 alias rmswp='find -name '*.swp' | xargs rm'
+alias rmr='rm -r'
 
 # [git alias] aliases
 alias gco='git co'

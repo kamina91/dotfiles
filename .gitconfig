@@ -1,6 +1,5 @@
 [user]
-	name = kamina91
-	email = kamina.dev1991@gmail.com
+	useConfigOnly = true
 [color]
     ui = auto
 [alias]

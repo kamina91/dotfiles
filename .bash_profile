@@ -12,19 +12,49 @@ fi
 
 # User specific environment and startup programs
 
+#### START PATH settings ####
 PATH=$PATH:$HOME/bin
 
 if [ -d ~/.rbenv ]; then
-    export PATH
     export PATH="$HOME/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
 fi
 
 if [ -d ~/.pyenv ]; then
-    export PATH
     export PATH="$HOME/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
 fi
+
+if [ -d ~/.exenv ]; then
+    export PATH="$HOME/.exenv/bin:$PATH"
+    eval "$(exenv init -)"
+fi
+
+if [ -d ~/.cargo ]; then
+    export PATH="$HOME/.cargo/env:$PATH"
+fi
+
+# uniq PATH
+_path=""
+for _p in $(echo $PATH | tr ':' ' '); do
+    case ":${_path}:" in
+        *:"${_p}":* )
+            ;;
+        * )
+            if [ "$_path" ]; then
+                _path="$_path:$_p"
+            else
+                _path=$_p
+            fi
+            ;;
+    esac
+done
+
+PATH=$_path
+
+unset _p
+unset _path
+#### END PATH settings ####
 
 # Display Git Branch name
 GIT_PS1_SHOWDIRTYSTATE=true
