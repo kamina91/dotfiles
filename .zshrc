@@ -180,6 +180,11 @@ precmd() {
 # Other Settings
 # ------------------------------
 
+# kubectl があれば補完をロードする
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
+
 ### Aliases ###
 #時刻を表示させる
 alias history='history -E'
