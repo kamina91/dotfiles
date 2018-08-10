@@ -42,6 +42,9 @@ alias ta='tmux attach'
 source ~/dotfiles/.git-prompt.sh
 source ~/dotfiles/.git-completion.bash
 
+# kubectl completion
+source <(kubectl completion bash)
+
 dispatch_hist () {
   export EXIT_STATUS="$?"
 
