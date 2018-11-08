@@ -46,10 +46,10 @@ fi
 case "${OSTYPE}" in
     darwin*)
         echo "change origin url to https"
-        git remote set-url origin https://github.com/kamina91/dotfiles.git
+        git remote set-url origin https://github.com/kamina-zzz/dotfiles.git
         ;;
     linux*)
         echo "change origin url to git protocol"
-        git remote set-url origin git@github.com:kamina91/dotfiles.git
+        git remote set-url origin git@github.com:kamina-zzz/dotfiles.git
         ;;
 esac
