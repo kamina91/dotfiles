@@ -43,7 +43,10 @@ source ~/dotfiles/.git-prompt.sh
 source ~/dotfiles/.git-completion.bash
 
 # kubectl completion
-source <(kubectl completion bash)
+if type kubectl > /dev/null 2>&1
+then
+  source <(kubectl completion bash)
+fi
 
 dispatch_hist () {
   export EXIT_STATUS="$?"
