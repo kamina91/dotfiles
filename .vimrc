@@ -21,8 +21,9 @@ set shiftwidth=2
 "拡張子によってタブ幅を変更
 augroup fileTypeIndent
     autocmd!
-    autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd BufNewFile,BufRead *.erb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    au BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    au BufNewFile,BufRead *.erb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    au BufNewFile,BufRead *.go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noet
 augroup END
 
 "自動的にペーストモードを終了する
@@ -94,7 +95,7 @@ let mapleader = ","
 
 set tabpagemax=20
 
-"SCSS用のシンタックス設定
+"シンタックス設定
 au BufRead,BufNewFile *.scss set filetype=sass
 
 " ------------------------NeoBundle------------------------ "
@@ -138,6 +139,7 @@ NeoBundle 'FuzzyFinder'                 " FuzzyFinder         : ファジーサ�
 NeoBundle 'tpope/vim-fugitive'          " fugitive            : vimとgit連携
 
 NeoBundle 'slim-template/vim-slim'      " vim-slim            : slimのシンタックス
+NeoBundle 'fatih/vim-go'                " vim-go              : goのシンタックス
 "NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
 "NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
 "NeoBundle 'yuttie/comfortable-motion.vim'   " comfortable-motion    : スムーズなスクロール
