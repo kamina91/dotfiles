@@ -23,5 +23,5 @@ dotfiles (CentOS 6.5)
 
 1. install ruby, python, lua
 1. git clone https://github.com/vim/vim.git
-1. `./configure --enable-multibyt --enable-xim --enable-fontset --enable-luainterp --with-features=huge --disable-selinux --enable-luainterp=yes --enable-rubyinterp=yes --enable-pythoninterp=yes`
+1. `./configure --enable-multibyte --enable-xim --enable-fontset --enable-luainterp --with-features=huge --disable-selinux --enable-luainterp=yes --enable-rubyinterp=yes --enable-pythoninterp=yes`
 1. make && make install
