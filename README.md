@@ -1,6 +1,6 @@
 # dotfiles
 
-dotfiles (CentOS 6.5)
+dotfiles (CentOS 7.6)
 
 ## How To Use
 
