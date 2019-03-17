@@ -78,9 +78,7 @@ set number
 " ステータス行の表示
 set laststatus=2
 " ステータス行の内容を変更
-"set statusline=%<%f\%m%r%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%v
-" ファイルへの相対パスを表示する
-"let g:Powerline_stl_path_style = 'relative'
+set statusline=%<%f\%m%r%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%v
 
 "C-w,oでファイルを指定して横分割、オープン
 nmap <C-W>o :sp
@@ -140,6 +138,7 @@ NeoBundle 'tpope/vim-fugitive'          " fugitive            : vimとgit連携
 
 NeoBundle 'slim-template/vim-slim'      " vim-slim            : slimのシンタックス
 NeoBundle 'fatih/vim-go'                " vim-go              : goのシンタックス
+NeoBundle 'posva/vim-vue'               " vim-vue             : vueのシンタックス
 "NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
 "NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
 "NeoBundle 'yuttie/comfortable-motion.vim'   " comfortable-motion    : スムーズなスクロール
@@ -168,6 +167,7 @@ NeoBundle 'itchyny/lightline.vim'       " statusline      : ステータスラ�
 
 call neobundle#end()
 filetype plugin indent on
+set background=dark
 colorscheme iceberg
 
 " ====================
