@@ -35,6 +35,13 @@ if [ -d ~/.cargo ]; then
     export PATH="$HOME/.cargo/env:$PATH"
 fi
 
+if [ -x "`which go`" ]; then
+    mkdir -p $HOME/.go_local/bin
+    export GOROOT=`go env GOROOT`
+    export GOPATH=$HOME/.go_local
+    export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+fi
+
 # uniq PATH
 _path=""
 for _p in $(echo $PATH | tr ':' ' '); do
