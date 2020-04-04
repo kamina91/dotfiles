@@ -1,17 +1,21 @@
 [user]
-	useConfigOnly = true
+  useConfigOnly = true
+  email = bpm1991.blaster@gmail.com
+  name = kamina-zzz
 [color]
-    ui = auto
+  ui = auto
 [alias]
-    co = checkout
-    br = branch
-    cm = commit -m
-    st = status
-    ps = push
-    pl = pull
-    df = diff
-    ad = add
-    gr = grep
-    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  co = checkout
+  br = branch
+  cm = commit -m
+  st = status
+  ps = push
+  pl = pull
+  df = diff
+  ad = add
+  gr = grep
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [diff]
-	compactionHeuristic = true
+  compactionHeuristic = true
+[ghq]
+  root = ~/src/

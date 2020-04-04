@@ -222,6 +222,16 @@ alias gst='git status'
 # [tmux]
 alias ta='tmux attach'
 
+# [fzf]
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# [ghq]
+function repo { cd $(ghq list -p | fzf) }
+
+function clone() {
+  ghq get -p $@ && repo;
+}
+
 # [after alias]cdコマンド実行後、llを実行する
 function cd() {
   builtin cd $@ && ll;
