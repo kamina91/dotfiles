@@ -219,6 +219,9 @@ alias gdf='git df'
 alias gad='git ad'
 alias gst='git status'
 
+# [docker-compose]
+alias dc='docker-compose'
+
 # [tmux]
 alias ta='tmux attach'
 
@@ -229,7 +232,7 @@ alias ta='tmux attach'
 function repo { cd $(ghq list -p | fzf) }
 
 function clone() {
-  ghq get -p $@ && repo;
+  ghq get -p $@ && cd $(ghq list -p | grep $@ | fzf);
 }
 
 # [after alias]cdコマンド実行後、llを実行する
