@@ -229,10 +229,10 @@ alias ta='tmux attach'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # [ghq]
-function repo { cd $(ghq list -p | fzf) }
+function repo { cd $(ghq list -p | fzf -q $@) }
 
 function clone() {
-  ghq get -p $@ && cd $(ghq list -p | grep $@ | fzf);
+  ghq get -p $@ && cd $(ghq list -p | grep $@);
 }
 
 # [after alias]cdコマンド実行後、llを実行する
