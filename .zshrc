@@ -229,7 +229,7 @@ alias ta='tmux attach'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # [ghq]
-function repo { cd $(ghq list -p | fzf -q $@) }
+function repo { cd $(ghq list -p | fzf -q ""$@"") }
 
 function clone() {
   ghq get -p $@ && cd $(ghq list -p | grep $@);
