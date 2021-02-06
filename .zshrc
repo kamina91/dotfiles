@@ -85,6 +85,10 @@ if [ -d ~/.yarn ]; then
     export PATH="$HOME/.yarn/bin:$PATH"
 fi
 
+if [ -d ~/.tfenv ]; then
+    export PATH="$HOME/.tfenv/bin:$PATH"
+fi
+
 # uniq PATH
 _path=""
 for _p in $(echo $PATH | tr ':' ' '); do
@@ -242,6 +246,10 @@ function repo { cd $(ghq list -p | fzf -q ""$@"") }
 
 function clone() {
   ghq get -p $@ && cd $(ghq list -p | grep $@);
+}
+
+function kclone() {
+  clone kamina-zzz/$@;
 }
 
 # [after alias]cdコマンド実行後、llを実行する
