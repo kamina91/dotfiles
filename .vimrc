@@ -139,6 +139,7 @@ NeoBundle 'tpope/vim-fugitive'          " fugitive            : vimとgit連携
 NeoBundle 'slim-template/vim-slim'      " vim-slim            : slimのシンタックス
 NeoBundle 'fatih/vim-go'                " vim-go              : goのシンタックス
 NeoBundle 'posva/vim-vue'               " vim-vue             : vueのシンタックス
+NeoBundle 'leafgarland/typescript-vim'  " typescript-vim      : tsのシンタックス
 "NeoBundle 'beyondwords/vim-twig'        " Twig              : Twigのシンタックス
 "NeoBundle 'stephpy/vim-php-cs-fixer'    " php-cs-fixer      : PHP Coding Standards Fixer
 "NeoBundle 'yuttie/comfortable-motion.vim'   " comfortable-motion    : スムーズなスクロール

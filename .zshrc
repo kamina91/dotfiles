@@ -76,6 +76,15 @@ if [ -x "`which go`" ]; then
     export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 fi
 
+if [ -d ~/.nodenv ]; then
+    export PATH="$HOME/.nodenv/bin:$PATH"
+    eval "$(nodenv init -)"
+fi
+
+if [ -d ~/.yarn ]; then
+    export PATH="$HOME/.yarn/bin:$PATH"
+fi
+
 # uniq PATH
 _path=""
 for _p in $(echo $PATH | tr ':' ' '); do
